@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cb4dmtnqvbmyg"]
+
+[ext_resource type="Texture2D" uid="uid://2tuykpm8lxfn" path="res://assets/enemy ships/Skull head.png" id="1_ibmnt"]
+[ext_resource type="Script" path="res://skullhead.gd" id="1_ua4y5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pc75"]
+atlas = ExtResource("1_ibmnt")
+region = Rect2(0, 0, 56, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ucpx"]
+atlas = ExtResource("1_ibmnt")
+region = Rect2(56, 0, 56, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhwwi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pc75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ucpx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lgmpk"]
+radius = 28.6356
+
+[node name="skullhead" type="Area2D" groups=["projectile"]]
+script = ExtResource("1_ua4y5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qhwwi")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lgmpk")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

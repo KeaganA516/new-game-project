@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwxp85ntfclso"]
+
+[ext_resource type="Script" path="res://scenes/background.gd" id="1_atqiv"]
+[ext_resource type="Texture2D" uid="uid://b2wtr1hnpxu03" path="res://assets/Skybox Castle outside.png" id="1_g3q2c"]
+[ext_resource type="PackedScene" uid="uid://belsj8bhqkbfm" path="res://scenes/player.tscn" id="3_x14yc"]
+[ext_resource type="PackedScene" uid="uid://cb4dmtnqvbmyg" path="res://skullhead.tscn" id="4_i6udo"]
+
+[node name="world" type="Node2D" groups=["projectile"]]
+
+[node name="background" type="Node2D" parent="."]
+script = ExtResource("1_atqiv")
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+offset_right = 4393.0
+offset_bottom = 240.0
+scale = Vector2(1.345, 1.345)
+texture = ExtResource("1_g3q2c")
+stretch_mode = 1
+
+[node name="player" parent="." instance=ExtResource("3_x14yc")]
+position = Vector2(73, 172)
+speed = 300
+
+[node name="skullhead" parent="." instance=ExtResource("4_i6udo")]
+position = Vector2(405, 210)
+
+[node name="skullhead2" parent="." instance=ExtResource("4_i6udo")]
+position = Vector2(318, 131)
+
+[node name="skullhead3" parent="." instance=ExtResource("4_i6udo")]
+position = Vector2(421, 49)
+
+[node name="skullhead4" parent="." instance=ExtResource("4_i6udo")]
+position = Vector2(544, 124)
+
+[node name="skullhead5" parent="." instance=ExtResource("4_i6udo")]
+position = Vector2(636, 54)
+
+[node name="skullhead6" parent="." instance=ExtResource("4_i6udo")]
+position = Vector2(647, 216)
+
+[node name="skullhead7" parent="." instance=ExtResource("4_i6udo")]
+position = Vector2(539, 279)
